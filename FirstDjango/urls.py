@@ -20,5 +20,8 @@ from MainApp import views
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
-    path('',views.home)
+    path('', views.home_page, name="home"),
+    path('items', views.item_list),
+    path('item/<int:id>', views.item_page),
+    path('about',views.about)
 ]
