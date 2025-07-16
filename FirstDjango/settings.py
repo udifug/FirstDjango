@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_extensions',
+    'MainApp',
 ]
 
 MIDDLEWARE = [
@@ -120,3 +122,31 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGGING = {
+'version': 1,
+'disable_existing_loggers': False, # Не отключаем существующие логгеры
+
+'formatters': {
+    'sql_formatter': {
+        'format': '{levelname} {message} (Duration: {duration:.3f}s)', # Формат для SQL
+        'style': '{',
+    },
+},
+
+'handlers': {
+    'console_sql': { # Отдельный обработчик для SQL-запросов
+        'class': 'logging.StreamHandler',
+        'formatter': 'sql_formatter',
+        'level': 'DEBUG',
+    },
+},
+
+'loggers': {
+    'django.db.backends': {
+        'handlers': ['console_sql'], # Используем наш специальный обработчик
+        'level': 'DEBUG',           # Уровень DEBUG для отображения всех запросов
+        'propagate': False,         # Очень важно: отключаем всплытие, чтобы SQL не дублировался другими логгерами
+    },
+}
+}

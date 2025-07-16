@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Моя первая страница Django</title>
+    <title>Главная страница</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -12,21 +12,42 @@
             text-align: center;
             padding-top: 50px;
         }
+
+        .navbar {
+            background-color: #2b5dab;
+            padding: 10px 20px;
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+
         h1 {
             color: #0056b3;
         }
+
         p {
             font-size: 1.2em;
         }
     </style>
 </head>
 <body>
-<nav>
-    <a href="/">Home</a> | <a href="/items">Items</a> | <a href="/about">About</a>
-</nav>
-    <h1>Привет из Django!</h1>
-    <p>Вы успешно отобразили HTML-страницу.</p>
-    <p>Это ваша первая статическая страница, возвращаемая из шаблона.</p>
-    <h1><a href="/items">Список товаров</a></h1>
+<div class="navbar">
+    <a href="/">Home</a>
+    <a href="/items">Items</a>
+    <a href="/about">About</a>
+</div>
+<h1>Привет из Django!</h1>
+<p>Вы успешно отобразили HTML-страницу.</p>
+<p>Это ваша первая статическая страница, возвращаемая из шаблона.</p>
+<h1><a href="/items">Список товаров</a></h1>
 </body>
 </html>

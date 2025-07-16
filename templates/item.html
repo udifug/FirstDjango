@@ -3,43 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ name }}</title>
+    <title>{{ item.name }}</title>
     <style>
         body {
-            font-family: sans-serif;
-            margin: 20px;
-            background-color: #f4f4f4;
-            color: #333;
+            font-family: Arial, sans-serif;
+            background-color: #f5f7fa;
+            padding: 0;
+            margin: 0;
+        }
+
+        .navbar {
+            background-color: #2b5dab;
+            padding: 10px 20px;
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .navbar a:hover {
+            text-decoration: underline;
         }
 
         .container {
-            max-width: 960px;
-            margin: 0 auto;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin: 40px auto;
+            background-color: #ffffff;
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            margin-top: 0;
+            color: #2b5dab;
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: #444;
+            margin-bottom: 10px;
+        }
+
+        .not-available {
+            color: #c0392b;
+            font-weight: bold;
+        }
+
+        a.back-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: #2b5dab;
+            text-decoration: none;
+        }
+
+        a.back-link:hover {
+            text-decoration: underline;
+        }
+
+        .availability {
+            margin-top: 8px;
+            font-size: 0.95rem;
+            color: #2e7d32; /* зелёный */
+        }
+
+        .availability.out {
+            color: #c0392b; /* красный */
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
-<ul>
-    <li><a href="/">Home</a></li>
-    <li><a href="/items">Items</a></li>
-    <li><a href="/about">About</a></li>
-</ul>
+<div class="navbar">
+      <a href="/">Home</a>
+      <a href="/items">Items</a>
+      <a href="/about">About</a>
+</div>
 <div class="container">
-    <h1>{{ name }}</h1>
+    <h1>{{ item.name }}</h1>
     <p>
-        Наименование: <strong>{{ name }}</strong>
+        Бренд: {{ item.brand }}
     </p>
-    {% if quantity %}
-        <p>Количество: {{ quantity }} шт.</p>
+    {% if item.count %}
+        <div class="availability">Количество: {{ item.count }} шт.</div>
     {% else %}
-        <p>Товар отсутствует</p>
+        <div class="not-available">Товар отсутствует</div>
     {% endif %}
     <p>
-        <a href="/items">Вернуться к списку товаров</a>
+        <a href="/items"><-Назад</a>
     </p>
 </div>
 </body>
