@@ -6,23 +6,27 @@
     <title>{{ item.name }}</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f7fa;
-            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #eef2f5;
             margin: 0;
+            padding: 0;
         }
 
         .navbar {
             background-color: #2b5dab;
-            padding: 10px 20px;
+            padding: 14px 28px;
             display: flex;
-            gap: 20px;
+            justify-content: center;
+            gap: 24px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         .navbar a {
             color: white;
             text-decoration: none;
             font-weight: bold;
+            font-size: 1.05rem;
+            transition: 0.2s;
         }
 
         .navbar a:hover {
@@ -30,40 +34,27 @@
         }
 
         .container {
-            max-width: 800px;
+            max-width: 700px;
             margin: 40px auto;
-            background-color: #ffffff;
-            padding: 24px;
-            border-radius: 12px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            padding: 32px;
+            border-radius: 16px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
         }
 
         h1 {
             margin-top: 0;
             color: #2b5dab;
+            font-size: 1.8rem;
+            margin-bottom: 12px;
         }
 
-        p {
+        .brand {
             font-size: 1.1rem;
-            color: #444;
-            margin-bottom: 10px;
+            color: #666;
+            margin-bottom: 16px;
         }
 
-        .not-available {
-            color: #c0392b;
-            font-weight: bold;
-        }
-
-        a.back-link {
-            display: inline-block;
-            margin-top: 20px;
-            color: #2b5dab;
-            text-decoration: none;
-        }
-
-        a.back-link:hover {
-            text-decoration: underline;
-        }
 
         .availability {
             margin-top: 8px;
@@ -71,31 +62,60 @@
             color: #2e7d32; /* зелёный */
         }
 
-        .availability.out {
+        .availability-out {
             color: #c0392b; /* красный */
             font-weight: bold;
+        }
+
+        .product-description {
+            font-size: 0.9rem;
+            color: #555;
+            margin-top: 10px;
+            line-height: 1.4;
+            max-height: 4.2em; /* 3 строки */
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .back-link {
+            display: inline-block;
+            font-size: 0.95rem;
+            text-decoration: none;
+            color: #2b5dab;
+            border: 1px solid #2b5dab;
+            padding: 6px 12px;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .back-link:hover {
+            background-color: #2b5dab;
+            color: white;
         }
     </style>
 </head>
 <body>
 <div class="navbar">
-      <a href="/">Home</a>
-      <a href="/items">Items</a>
-      <a href="/about">About</a>
+    <a href="/">Главная</a>
+    <a href="/items">Товары</a>
+    <a href="/about">О сайте</a>
 </div>
 <div class="container">
     <h1>{{ item.name }}</h1>
-    <p>
+    <div class="brand">
         Бренд: {{ item.brand }}
-    </p>
+    </div>
     {% if item.count %}
         <div class="availability">Количество: {{ item.count }} шт.</div>
     {% else %}
-        <div class="not-available">Товар отсутствует</div>
+        <div class="availability-out">Товар отсутствует</div>
     {% endif %}
-    <p>
-        <a href="/items"><-Назад</a>
-    </p>
+    <div class="product-description">
+        {{ item.description }}
+    </div>
+
+    <a class="back-link" href="/items"><-Назад к списку</a>
+
 </div>
 </body>
 </html>

@@ -5,49 +5,98 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Главная страница</title>
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background-color: #f0f2f5;
             color: #333;
-            text-align: center;
-            padding-top: 50px;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
         .navbar {
             background-color: #2b5dab;
-            padding: 10px 20px;
+            padding: 14px 28px;
             display: flex;
-            gap: 20px;
+            justify-content: center;
+            gap: 24px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         .navbar a {
             color: white;
             text-decoration: none;
             font-weight: bold;
+            font-size: 1.05rem;
+            transition: 0.2s;
         }
 
         .navbar a:hover {
             text-decoration: underline;
         }
 
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
         h1 {
-            color: #0056b3;
+            font-size: 2.2rem;
+            color: #2b5dab;
+            margin-bottom: 16px;
         }
 
         p {
-            font-size: 1.2em;
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+        }
+
+        .cta-link {
+            display: inline-block;
+            margin-top: 24px;
+            padding: 12px 24px;
+            background-color: #2b5dab;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            border-radius: 6px;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-link:hover {
+            background-color: #1e4c8a;
+        }
+
+        footer {
+            padding: 16px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #888;
         }
     </style>
 </head>
 <body>
 <div class="navbar">
-    <a href="/">Home</a>
-    <a href="/items">Items</a>
-    <a href="/about">About</a>
+    <a href="/">Главная</a>
+    <a href="/items">Товары</a>
+    <a href="/about">О сайте</a>
 </div>
-<h1>Привет из Django!</h1>
-<p>Вы успешно отобразили HTML-страницу.</p>
-<p>Это ваша первая статическая страница, возвращаемая из шаблона.</p>
-<h1><a href="/items">Список товаров</a></h1>
+<div class="main-content">
+    <h1>Магазин товаров для личного пользования</h1>
+    <p>В этом магазине вы найдете то что вы пожелаете</p>
+    <p>Мы предлагаем большое количество товаров и их описание</p>
+    <a class="cta-link" href="/items">Перейти к списку товаров</a>
+</div>
 </body>
 </html>
