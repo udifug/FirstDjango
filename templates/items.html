@@ -1,131 +1,22 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Список товаров</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f7fa;
-            margin: 0;
-            padding: 0;
-        }
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Список товаров{% endblock %}
 
-        .navbar {
-            background-color: #2b5dab;
-            padding: 14px 28px;
-            display: flex;
-            justify-content: center;
-            gap: 24px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
+{% block style %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'css/items_st.css' %}">
+{% endblock %}
 
-        .navbar a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.05rem;
-            transition: 0.2s;
-        }
-
-        .navbar a:hover {
-            text-decoration: underline;
-        }
-
-        .container {
-            max-width: 960px;
-            margin: 40px auto;
-            padding: 20px;
-        }
-
-        h2 {
-            color: #2b5dab;
-            margin-bottom: 24px;
-        }
-
-        .product-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .product-card {
-            background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            padding: 16px;
-            width: calc(33.333% - 14px);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .product-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .product-card a {
-            color: #2b5dab;
-            font-size: 1.05rem;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .product-card a:hover {
-            text-decoration: underline;
-        }
-
-        .availability {
-            margin-top: 8px;
-            font-size: 0.95rem;
-            color: #2e7d32; /* зелёный */
-        }
-
-        .availability-out {
-            color: #c0392b; /* красный */
-            font-weight: bold;
-        }
-
-        .product-description {
-            font-size: 0.9rem;
-            color: #555;
-            margin-top: 10px;
-            line-height: 1.4;
-            max-height: 4.2em; /* 3 строки */
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        @media (max-width: 768px) {
-            .product-card {
-                width: calc(50% - 10px);
-            }
-        }
-
-        @media (max-width: 480px) {
-            .product-card {
-                width: 100%;
-            }
-        }
-    </style>
-</head>
-<body>
-<div class="navbar">
-    <a href="/">Главная</a>
-    <a href="/items">Товары</a>
-    <a href="/about">О сайте</a>
-</div>
+{% block content %}
 <div class="container">
     <h1>Список товаров</h1>
     <div class="product-list">
         {% for item in items %}
             <div class="product-card">
                 <h2>{{ item.name }} {{ item.brand }}</h2>
-                <a href="/item/{{ item.id }}">Описание товара</a>
+                <a href="{% url 'item-detail' item.id %}">Описание товара</a>
             </div>
         {% endfor %}
     </div>
 </div>
-</body>
-</html>
+{% endblock %}
