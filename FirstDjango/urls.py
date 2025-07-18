@@ -23,5 +23,6 @@ urlpatterns = [
     path('', views.home_page, name="home"),
     path('items', views.item_list, name='items-list'),
     path('item/<int:id>', views.item_page, name='item-detail'),
-    path('about',views.about, name='about')
+    path('about',views.about, name='about'),
+    path('item/add', views.item_add, name='item-add'),
 ]

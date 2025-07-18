@@ -1,0 +1,55 @@
+.form-wrapper {
+        max-width: 600px;
+        margin: 40px auto;
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        font-family: 'Segoe UI', sans-serif;
+    }
+
+    .form-wrapper h2 {
+        margin-bottom: 24px;
+        color: #2b5dab;
+        text-align: center;
+    }
+
+    .form-wrapper label {
+        display: block;
+        margin-bottom: 6px;
+        font-weight: 600;
+        color: #333;
+    }
+
+    .form-wrapper input[type="text"],
+    .form-wrapper input[type="number"],
+    .form-wrapper textarea {
+        width: 100%;
+        padding: 10px 12px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 1rem;
+        transition: border-color 0.3s;
+    }
+
+    .form-wrapper input:focus,
+    .form-wrapper textarea:focus {
+        outline: none;
+        border-color: #2b5dab;
+    }
+
+    .form-wrapper input[type="submit"] {
+        background-color: #2b5dab;
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        font-size: 1rem;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .form-wrapper input[type="submit"]:hover {
+        background-color: #1e4c8a;
+    }
