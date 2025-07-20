@@ -15,6 +15,10 @@
     <div class="brand">
         Бренд: {{ item.brand }}
     </div>
+    Цвета в наличии:
+    {% for color in item.colors.all %}
+        <li>{{ color.name }}</li>
+    {% endfor %}
 {#    {{ item.count | default:'Товар отсутствует '}}#}
     {% if item.count %}
         <div class="availability">Количество: {{ item.count }} шт.</div>
